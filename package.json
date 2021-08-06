@@ -13,6 +13,11 @@
   },
   "dependencies": {
     "@prisma/client": "^2.27.0",
+    "@chakra-ui/icons": "^1.0.13",
+    "@chakra-ui/react": "^1.6.2",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "framer-motion": "4",
     "next": "10.2.3",
     "nextjs-cors": "^1.0.5",
     "nodemailer": "^6.6.3",

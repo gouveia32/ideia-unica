@@ -1,5 +1,19 @@
-import Link from "next/link";
 import { useState } from "react";
+import { Image, Link, Text } from '@chakra-ui/react'
+import { motion } from "framer-motion";
+import { Logo } from './Logo'
+
+const MenuItem = ({ children, isLast, to = '/' }) => {
+    return (
+        <Text
+            mb={{ base: isLast ? 0 : 8, sm: 0 }}
+            mr={{ base: 0, sm: isLast ? 0 : 8 }}
+            display="block"
+        >
+            <Link href={to}>{children}</Link>
+        </Text>
+    );
+};
 
 export default function Navbar() {
   const [active, setActive] = useState(false);
@@ -12,12 +26,7 @@ export default function Navbar() {
     <header className="bg-gray-800">
       <nav className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
-          <Link href="/">
-            <a className="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-indigo-400">
-              BRAND NAME
-            </a>
-          </Link>
-
+            <Logo />
           <div className="flex md:hidden">
             <button
               type="button"
@@ -41,12 +50,12 @@ export default function Navbar() {
         >
           <Link href="/">
             <a className="text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform hover:text-indigo-400">
-              Home page
+              Home
             </a>
           </Link>
           <Link href="/about">
             <a className="text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform hover:text-indigo-400">
-              About us
+              Sobre
             </a>
           </Link>
           <div className="dropdown inline-block relative text-center">

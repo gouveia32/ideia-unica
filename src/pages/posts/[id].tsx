@@ -1,7 +1,7 @@
 import { PrismaClient, Post } from "@prisma/client";
 import { useState } from "react";
-import Layout from "../../components/Layout";
-import PostItem from "../../components/Post";
+import Layout from "components/Layout";
+import PostItem from "components/Post"
 
 const prisma = new PrismaClient();
 
