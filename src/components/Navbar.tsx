@@ -126,6 +126,40 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
+          <div className="dropdown inline-block relative text-center">
+            <button className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400 inline-flex items-center">
+              <span className="mr-1">Cadastro</span>
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </button>
+            <ul className="dropdown-menu sm:absolute hidden md:text-center md:w-48 sm:text-center text-gray-700 pt-1 group-hover:block ">
+              <li>
+                <a href="/products/1" className="bg-gray-200 hover:bg-gray-400 py-2 block whitespace-no-wrap">
+                  Bordado
+                </a>
+              </li>
+              <li>
+                <a href="/clientes/1" className="bg-gray-200 hover:bg-gray-400 py-2 block whitespace-no-wrap">
+                  Cliente
+                </a>
+              </li>
+              <li>
+                <a href="/products/3" className="bg-gray-200 hover:bg-gray-400 py-2 block whitespace-no-wrap">
+                  Fornecedor
+                </a>
+              </li>
+              <li>
+                <a href="/products/4" className="bg-gray-200 hover:bg-gray-400 py-2 block whitespace-no-wrap">
+                  Empregado
+                </a>
+              </li>
+            </ul>
+          </div>
           <Link href="/contact">
             <a className="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-indigo-400">
               Contact us

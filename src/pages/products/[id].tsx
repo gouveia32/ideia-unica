@@ -34,6 +34,7 @@ export async function getStaticProps({ params }) {
       category: true,
     },
   });
+ 
   return {
     props: {
       data: products,
@@ -51,6 +52,7 @@ export async function getStaticPaths() {
       category: true,
     },
   });
+   //console.log("prod:",products)
   return {
     paths: products.map((product) => ({
       params: {
