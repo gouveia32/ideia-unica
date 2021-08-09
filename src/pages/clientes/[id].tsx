@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 export default function ID({ data }) {
   const [clientes, setClientes] = useState<Cliente[]>(data);
-  console.log("clientes1:",data)
+  //console.log("clientes1:",data)
   return (
     <Layout>
       <div className="container mx-auto px-6 py-6">
@@ -26,7 +26,7 @@ export default function ID({ data }) {
 
 export async function getStaticProps({ params }) {
   const clientes: Cliente[] = await prisma.cliente.findMany();
-  console.log("clientes2:",clientes)
+  //console.log("clientes2:",clientes)
   return {
     props: {
       data: clientes,
@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const clientes: Cliente[] = await prisma.cliente.findMany();
-  console.log("clientes3:",clientes)
+  //console.log("clientes3:",clientes)
   return {
     paths: clientes.map((cliente) => ({
       params: {

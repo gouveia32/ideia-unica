@@ -58,11 +58,11 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const products = await prisma.product.findMany();
+  const clientes = await prisma.cliente.findMany();
   return {
-    paths: products.map((product) => ({
+    paths: clientes.map((cliente) => ({
       params: {
-        id: product.id.toString(),
+        id: cliente.id.toString(),
       },
     })),
     fallback: false,
