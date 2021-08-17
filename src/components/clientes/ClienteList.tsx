@@ -1,4 +1,4 @@
-import Cliente from "./clientes/Cliente";
+import Cliente from "./Cliente";
 
 export default function ClienteList({ clientes }) {
   return (
@@ -9,7 +9,7 @@ export default function ClienteList({ clientes }) {
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
         {clientes
           ? clientes
-              .filter((clientes, idx) => idx < 4)
+              .filter((cliente, idx) => idx < 4)
               .map((cliente) => <Cliente key={cliente.id} cliente={cliente} />)
           : "no-data"}
       </div>

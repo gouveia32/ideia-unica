@@ -1,15 +1,19 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import Head from "next/head";
 import { AppProps } from "next/app";
 import "../styles/index.css";
+import Layout from "components/Layout";
+
+import { theme } from '../styles/theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <title>NextJS TailwindCSS TypeScript Starter</title>
+      <ChakraProvider theme={theme}>
+        <title>ccb-Ponto Fino Bordados</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
+      </ChakraProvider>
     </>
   );
 }

@@ -144,7 +144,7 @@ export default function Navbar() {
                 </a>
               </li>
               <li>
-                <a href="/clientes/1" className="bg-gray-200 hover:bg-gray-400 py-2 block whitespace-no-wrap">
+                <a href="/clientes" className="bg-gray-200 hover:bg-gray-400 py-2 block whitespace-no-wrap">
                   Cliente
                 </a>
               </li>

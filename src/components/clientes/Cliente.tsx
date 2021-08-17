@@ -1,5 +1,26 @@
 import Link from "next/link";
 
+export type ClienteProps = {
+  id:             number
+  nome:           string   
+  contato_funcao: string  
+  contato_nome:   string  
+  cgc_cpf:        string  
+  Razao_social:   string  
+  inscr_estadual: string  
+  endereco:       string  
+  cidade:         string   
+  uf:             string  
+  cep:            string  
+  telefone1:      string  
+  telefone2:      string  
+  telefone3:      string  
+  email:          string  
+  obs:            string  
+  estado:         number     
+  preco_base:     number
+};
+
 export default function Cliente({ cliente }) {
   return (
     <>
