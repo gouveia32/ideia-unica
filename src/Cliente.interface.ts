@@ -1,7 +1,7 @@
 export interface ICliente {
   id: number
   nome: string
-  telefone1: string+
+  telefone1: string
   email: string
 }
 
