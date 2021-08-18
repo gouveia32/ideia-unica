@@ -93,6 +93,10 @@ const Users: React.FC<Props> = (props) => {
         accessor: "telefone1",
         isNumeric: false,
       },
+      {
+        Header: "Email",
+        accessor: "email",
+      },
     ],
     []
   );

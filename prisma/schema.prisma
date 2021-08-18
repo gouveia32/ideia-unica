@@ -2,8 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:dev.db"
+  provider = "mysql"
+  url      = "mysql://root:ebtaju@localhost:3306/teste"
 }
 
 generator client {
@@ -86,6 +86,6 @@ model Cliente {
   email          String?  
   obs            String?  
   estado         Int?     
-  preco_base     Decimal?
+  preco_base     String?
 }
 
