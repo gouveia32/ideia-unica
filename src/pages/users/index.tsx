@@ -1,3 +1,4 @@
+import React from "react";
 import { useRef } from 'react';
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
@@ -5,7 +6,7 @@ import Slider from "react-slick";
 import { ClienteProps } from "components/clientes/Cliente"
 import { PrismaClient, Cliente } from "@prisma/client";
 import {
-  Table,
+  Flex,
   Thead,
   Tbody,
   Tr,
@@ -13,6 +14,9 @@ import {
   TableCaption,
 } from "@chakra-ui/react"
 import Layout from 'src/components/Layout';
+
+import TablePerso from "components/table";
+
 
 const prisma = new PrismaClient();
 
@@ -73,64 +77,43 @@ const Users: React.FC<Props> = (props) => {
   }
   //console.log("props:",props);
 
+  
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: "Id",
+        accessor: "id",
+      },
+      {
+        Header: "Nome",
+        accessor: "nome",
+      },
+      {
+        Header: "Telefone",
+        accessor: "telefone1",
+        isNumeric: false,
+      },
+    ],
+    []
+  );
+
+  //console.log("clientes:",props.clientes)
+
   return (
     <>
       <Layout>
-        <div style={{ textAlign: 'center', borderTop: '1px solid grey' }}>
-          <Table width="90%" variant="simple" colorScheme="teal">
-            <TableCaption>Clientes</TableCaption>
-            <Thead>
-              <Tr style={{ alignContent: 'center' }}>
-                <Th>
-                  <h3>id</h3>
-                </Th>
-                <Th align="left">
-                  <h3>Nome</h3>
-                </Th>
-                <Th align="left">
-                  <h3>Telefone</h3>
-                </Th>
-                <Th>
-                  <h3>Email</h3>
-                </Th>
-                <Th>
-                  <h3>Ação</h3>
-                </Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Slider {...settings} ref={ref}>
-                {
-                  props.clientes.length ? props.clientes.slice(0, 10).map((item: any, key: number) => (
-                    <ClienteCard key={key} item={item} />
-                  )) : null
-                }
-              </Slider>
-            </Tbody>
-          </Table>
-        </div>
-
-        <section className="w-full lg:overflow-hidden py-5 px-4">
-          <div>
-            <div className="grid grid-flow-col items-center gap-4 justify-end mb-4">
-              <span>Vê todos</span>
-              <div className="grid grid-flow-col gap-1">
-                <button onClick={handlePrev} className="bg-green-600 rounded-full h-8 w-8 flex items-center justify-center shadow-xl">
-                  {'<'}
-                </button>
-                <button onClick={handleNext} className="bg-green-600 rounded-full h-8 w-8 flex items-center justify-center shadow-xl">
-                  {'>'}
-                </button>
-              </div>
-            </div>
-            <div className="grid grid-row-4 overflow-hidden">
-
-            </div>
-          </div>
-
-          <div>
-          </div>
-        </section>
+        <TablePerso
+          data={props.clientes}
+          columns={columns}
+          isResponsive={true}
+          onRowClick={(row: any) => console.log(row)}
+          responsiveView={<Flex>responsive here....</Flex>}
+          isPaginate
+          onPageChanged={(f: any) => alert(JSON.stringify(f))}
+          currentPage={1}
+          totalRecords={300}
+          pageLimit={2}
+        />
       </Layout>
     </>
   )
